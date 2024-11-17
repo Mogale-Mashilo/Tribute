@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nelson Mandela Tribute</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1> A Tribute to the Father of a Nation : Nelson Mandela</h1>
+    </header>
+    <main>
+        <section class="slideshow">
+            <h2>Life of Nelson Mandela</h2>
+            <div class="slider">
+              <img src="imgs/youngMandela.jpg" alt="Young Nelson Mandela" class="slide" >
+              <img src="imgs/mandelaAsLawyer.jpg" alt="Mandela advocating peace" class="slide">
+              <img src="imgs/MandelaInPrison.jpg" alt="Mandela in Robben Island" class="slide">
+                <img src="imgs/mandelaAncRally.jpg" alt="Mandela with ANC" class="slide">
+                <img src="imgs/MandelaSwornIn.jpg" alt="Mandela Sworn In " class="slide">
+                <img src="imgs/mandelaAfterPreSidentalWin.jpg" alt="Mandela as President" class="slide">
+                
+            </div>
+            <p class="caption" id="caption">Young Nelson Mandela</p>
+        </section>
+
+        <section class="timeline">
+            <h2 style="text-align: center;">Timeline of Nelson Mandela's Life</h2>
+            <ul>
+                <li><strong>1918:</strong> Born on July 18 in Mvezo, South Africa.</li>
+                <li><strong>1943:</strong> Joins the African National Congress (ANC).</li>
+                <li><strong>1962:</strong> Arrested and sentenced to life imprisonment.</li>
+                <li><strong>1990:</strong> Released from prison after 27 years.</li>
+                <li><strong>1993:</strong> Awarded the Nobel Peace Prize.</li>
+                <li><strong>1994:</strong> Elected as South Africa’s first Black president.</li>
+                <li><strong>1999:</strong> Steps down as president.</li>
+                <li><strong>2013:</strong> Passes away on December 5.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const caption = document.getElementById('caption');
+    const captions = [
+        "Young Nelson Mandela",
+        "Mandela as an Attorney",
+        "Mandela in Robben Island",
+        "Mandela in an ANC rally",
+        "Mandela Sworn in as Democratic President of South Africa",
+        "Mandela as Democratic President of South Africa",
+        
+    ];
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+        caption.textContent = captions[index];
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 3000); 
+    showSlide(currentSlide);
+</script>
+</html>
